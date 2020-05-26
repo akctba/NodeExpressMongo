@@ -17,8 +17,9 @@ module.exports = class Product {
     return db.collection('products').insertOne(this);
   }
 
-  edit() {
-    
+  edit(id) {
+    const db = getDB();
+    return db.collection('products').updateOne({_id: new mongodb.ObjectID(id)}, {$set: this});
   }
 
   static deleteById(id) {

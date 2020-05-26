@@ -51,7 +51,7 @@ exports.postEditProduct = (req, res, next) => {
     updatedDesc,
     updatedPrice
   );
-  updatedProduct.edit()
+  updatedProduct.edit(prodId)
     .then(() => {
       res.redirect('/admin/products');
     })
